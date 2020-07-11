@@ -1,18 +1,3 @@
 p {
   font-family: Lato;
 }
-
-.game-message {
-  margin-bottom:2rem;
-}
-.game-main {
-  display:flex; 
-  justify-content:space-around;
-}
-
-.game-flops {
-  width:8rem; 
-  height:auto;
-  cursor:pointer;
-
-}

@@ -1,6 +1,6 @@
 <h4>Flopchooser</h4>
 
-<div class="game-message">
+<div style="margin-bottom:2rem" >
   <p>Which movie has a lower IMDB rating?</p>
   <p>Correct or Incorrect Message Here! (how can you show or hide an element?</p>
   <button class="btn btn-primary">Play Again</button>
@@ -9,8 +9,7 @@
 </div>
   
  
-
-<div class="game-main">
-    <img class="game-flops" [src]="flops[0].imageUrl" alt="">
-    <img class="game-flops" [src]="flops[1].imageUrl" alt="">
+<div style="display:flex; justify-content:space-around">
+  <my-flop-chooser [movie]="flops[0]"></my-flop-chooser>
+  <my-flop-chooser [movie]="flops[1]"></my-flop-chooser>
 </div>
