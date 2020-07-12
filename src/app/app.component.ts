@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FLOP_DATA } from './FLOP_DATA';
+import { FlopChooserService } from './flop-chooser.service'
 
 @Component({
   selector: 'my-app',
@@ -8,15 +8,38 @@ import { FLOP_DATA } from './FLOP_DATA';
 })
 export class AppComponent  {
 
-
-  constructor() {
+  flops;
+  isCorrect = false;
+  hasChosen = false;
+  constructor(public flopChooser: FlopChooserService) {
 
   }
 
-  // Feel free to put your own data here if you have other favorite flops
-  flops = FLOP_DATA;
-	
+  ngOnInit() {
+    this.selectNewFlops();
+  }
+  selectNewFlops() {
+    this.flops = this.flopChooser.getTwoRandomFlops();
+  }
 
-
-
+  onFirstFlopChosen() {
+    if(!this.hasChosen){
+      this.hasChosen = true;
+      this.isCorrect = this.flopChooser.isCorrect(this.flops.firstFlop, this.flops.secondFlop)
+      console.log(this.isCorrect)
+    }
+    
+  }
+  onSecondFlopChosen() {
+    if(!this.hasChosen){
+      this.hasChosen = true;
+      this.isCorrect = this.flopChooser.isCorrect(this.flops.secondFlop, this.flops.firstFlop)
+      console.log(this.isCorrect)
+    }
+  }
+  onPlayAgainClick() {
+    this.hasChosen = false;
+    this.selectNewFlops();
+    this.isCorrect = false;
+  }
 }

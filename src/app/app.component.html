@@ -2,14 +2,23 @@
 
 <div style="margin-bottom:2rem" >
   <p>Which movie has a lower IMDB rating?</p>
-  <p>Correct or Incorrect Message Here! (how can you show or hide an element?</p>
-  <button class="btn btn-primary">Play Again</button>
-   (don't show until they choose one)
-  
+  <p [hidden]="!hasChosen">
+    <span [hidden]="!isCorrect">Correct</span>
+    <span [hidden]="isCorrect">Incorrect</span>
+  </p>
+  <button 
+    [hidden]="!hasChosen"
+    (click)="onPlayAgainClick()"
+    class="btn btn-primary">Play Again
+  </button>
 </div>
   
  
 <div style="display:flex; justify-content:space-around">
-  <my-flop-chooser [movie]="flops[0]"></my-flop-chooser>
-  <my-flop-chooser [movie]="flops[1]"></my-flop-chooser>
+  <my-flop-chooser 
+  (choose)="onFirstFlopChosen()"
+  [movie]="flops.firstFlop"></my-flop-chooser>
+  <my-flop-chooser 
+  (choose)="onSecondFlopChosen()"
+  [movie]="flops.secondFlop"></my-flop-chooser>
 </div>
