@@ -1,6 +1,6 @@
 <h4>Flopchooser</h4>
 
-<div style="margin-bottom:2rem" >
+<div class="flop-mb-2">
   <p>Which movie has a lower IMDB rating?</p>
   <p [hidden]="!hasChosen">
     <span [hidden]="!isCorrect">Correct</span>
@@ -14,7 +14,7 @@
 </div>
   
  
-<div style="display:flex; justify-content:space-around">
+<div class="flop-chooser" style="">
   <my-flop-chooser 
   (choose)="onFirstFlopChosen()"
   [movie]="flops.firstFlop"></my-flop-chooser>
